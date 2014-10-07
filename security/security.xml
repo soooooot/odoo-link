@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.rule" id="link_link">
+            <field name="name">Public or My Own Links</field>
+            <field name="model_id" ref="model_link_link"/>
+            <field name="domain_force">['|', ('is_public', '=', True), ('create_uid', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+    </data>
+</openerp>

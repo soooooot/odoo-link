@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem name="Links" parent="mail.mail_my_stuff" id="menu_link_link" sequence="40" action="action_link_link" />
+
+        <record model="ir.actions.act_window" id="action_link_link">
+            <field name="name">Links</field>
+            <field name="res_model">link.link</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="link_link_form">
+            <field name="name">link.link.form</field>
+            <field name="model">link.link</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="title" />
+                        <field name="remark" />
+                        <field name="url" widget="url" />
+                        <field name="is_public" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_link_link_filter">
+        <field name="name">link.link.search</field>
+        <field name="model">link.link</field>
+        <field name="arch" type="xml">
+            <search string="Links">
+                <filter name="my" string="My" domain="[('create_uid', '=', uid)]"/>
+                <filter name="public" string="Public" domain="[('is_public', '=', True)]"/>
+            </search>
+        </field>
+        </record>
+
+
+    </data>
+</openerp>
