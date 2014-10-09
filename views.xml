@@ -5,7 +5,42 @@
         <record model="ir.actions.act_window" id="action_link_link">
             <field name="name">Links</field>
             <field name="res_model">link.link</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="link_link_kanban">
+            <field name="name">link.link.kanban</field>
+            <field name="model">link.link</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="title" />
+                    <field name="remark" />
+                    <field name="url" />
+                    <field name="is_public" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_vignette oe_semantic_html_override oe_kanban_box">
+                                <div class="oe_kanban_details">
+                                    <h4 class="oe_partner_heading">
+                                        <a type="open"><field name="title"/></a>
+                                        <a t-att-href="record.url.raw_value" class="pull-right fa fa-globe" target="_blank"></a>
+                                    </h4>
+                                    <ul>
+                                         <li>
+                                             <field name="remark"></field>
+                                         </li>
+                                    </ul>
+                                    <t t-if="record.is_public.raw_value == false">
+                                        <span class="pull-right fa fa-key"></span>
+                                    </t>
+                                </div>
+                            </div>
+
+                        </t>
+                    </templates>
+
+                </kanban>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="link_link_form">
@@ -20,6 +55,18 @@
                         <field name="is_public" />
                     </group>
                 </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="link_link_tree">
+            <field name="name">link.link.tree</field>
+            <field name="model">link.link</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                    <field name="url" widget="url"/>
+                    <field name="remark"/>
+                </tree>
             </field>
         </record>
 

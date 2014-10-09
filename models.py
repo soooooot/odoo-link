@@ -10,4 +10,4 @@ class link(models.Model):
     url = fields.Text(string='URL')
     title = fields.Char(string='Title', size=140)
     remark = fields.Char(string='Remark', size=140)
-    is_public = fields.Boolean(string='public', help='public for all the users')
+    is_public = fields.Boolean(string='public', help='public for all the users', default=True)
