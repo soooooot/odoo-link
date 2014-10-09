@@ -30,9 +30,15 @@
                                              <field name="remark"></field>
                                          </li>
                                     </ul>
+                                    <span>
+                                        <field name="create_uid"></field>
+                                    </span>
                                     <t t-if="record.is_public.raw_value == false">
                                         <span class="pull-right fa fa-key"></span>
                                     </t>
+                                    <span class="pull-right">
+                                        <field name="create_date"></field>
+                                    </span>
                                 </div>
                             </div>
 
@@ -64,8 +70,10 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="title"/>
-                    <field name="url" widget="url"/>
                     <field name="remark"/>
+                    <field name="is_public"/>
+                    <field name="create_uid"/>
+                    <field name="create_date"/>
                 </tree>
             </field>
         </record>
