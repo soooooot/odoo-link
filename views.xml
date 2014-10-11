@@ -89,6 +89,17 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="view_link_search_view">
+            <field name="model">link.link</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title"></field>
+                    <field name="remark"></field>
+                    <field name="url"></field>
+                </search>
+            </field>
+        </record>
+
         <menuitem name="Links" parent="mail.mail_my_stuff" id="menu_link_link" sequence="40" action="action_link_link" />
 
     </data>
